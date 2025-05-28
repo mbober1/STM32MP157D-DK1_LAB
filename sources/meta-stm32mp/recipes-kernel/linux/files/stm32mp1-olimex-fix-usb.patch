@@ -1,0 +1,65 @@
+From 75205cc9da6d01bad59d0eadb96d1c78fcfc3526 Mon Sep 17 00:00:00 2001
+From: Marcin Bober <mbober1@gmail.com>
+Date: Sun, 22 Dec 2024 16:45:35 +0000
+Subject: [PATCH] stm32mp1-olimex-fix-usb
+Upstream-Status: Inappropriate
+
+---
+ .../arm/boot/dts/st/stm32mp1xx-olinuxino-lime.dts | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm/boot/dts/st/stm32mp1xx-olinuxino-lime.dts b/arch/arm/boot/dts/st/stm32mp1xx-olinuxino-lime.dts
+index d8834c74eb3e..4e8cde0ba647 100644
+--- a/arch/arm/boot/dts/st/stm32mp1xx-olinuxino-lime.dts
++++ b/arch/arm/boot/dts/st/stm32mp1xx-olinuxino-lime.dts
+@@ -125,7 +125,7 @@ hdmi_1v2: regulator_hdmi1v2 {
+ 
+ 	vbus_otg: regulator_otg {
+ 		compatible = "regulator-fixed";
+-		regulator-name = "vdd-otg";
++		regulator-name = "vbus_otg";
+ 		regulator-min-microvolt = <5000000>;
+ 		regulator-max-microvolt = <5000000>;
+ 		gpios = <&gpioa 15 GPIO_ACTIVE_LOW>;
+@@ -145,9 +145,9 @@ vdd: vdd {
+ 		//regulator-over-current-protection;
+ 	};
+ 
+-	vdd_usb: vdd-usb {
++	vdd_usb: vdd_usb {
+ 		compatible = "regulator-fixed";
+-		regulator-name = "vdd-usb";
++		regulator-name = "vdd_usb";
+ 		regulator-min-microvolt = <3300000>;
+ 		regulator-max-microvolt = <3300000>;
+ 		enable-active-high;
+@@ -481,14 +481,12 @@ &usbphyc_port1 {
+ };
+ 
+ &usbh_ehci {
+-	phys = <&usbphyc_port0>, <&usbphyc_port1 1>;
+-	phy-names = "usb", "usb";
++	phys = <&usbphyc_port0>;
+ 	status = "okay";
+ };
+ 
+ &usbh_ohci {
+-	phys = <&usbphyc_port0>, <&usbphyc_port1 1>;
+-	phy-names = "usb", "usb";
++	phys = <&usbphyc_port0>;
+ 	status = "okay";
+ };
+ 
+@@ -496,6 +494,9 @@ &usbotg_hs {
+ 	compatible = "st,stm32mp15-fsotg", "snps,dwc2";			/* Use full-speed integrated PHY */
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&usbotg_hs_pins_a &usbotg_fs_dp_dm_pins_a>;	/* configure OTG ID and full-speed data pins */
++	phy-names = "usb2-phy";
++	phys = <&usbphyc_port1 0>;
+ 	vbus-supply = <&vbus_otg>;					/* voltage regulator to supply Vbus */
++	#usb33d-supply = <&usb33>;
+ 	status = "okay";
+ };
+-- 
+2.34.1
+

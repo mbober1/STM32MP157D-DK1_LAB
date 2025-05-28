@@ -1,0 +1,60 @@
+From b8cfd7dbc833429bb55acbe26d817d365b4e6dcc Mon Sep 17 00:00:00 2001
+From: Marcin Bober <mbober1@gmail.com>
+Date: Sun, 22 Dec 2024 11:56:19 +0000
+Subject: [PATCH] stm32mp1-olimex-enable-hdmi
+Upstream-Status: Inappropriate
+
+---
+ .../boot/dts/st/stm32mp1xx-olinuxino-lime.dts | 22 +++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/st/stm32mp1xx-olinuxino-lime.dts b/arch/arm/boot/dts/st/stm32mp1xx-olinuxino-lime.dts
+index 3df709784270..6d8cd1572fef 100644
+--- a/arch/arm/boot/dts/st/stm32mp1xx-olinuxino-lime.dts
++++ b/arch/arm/boot/dts/st/stm32mp1xx-olinuxino-lime.dts
+@@ -201,7 +201,7 @@ &ltdc {
+ 	pinctrl-0 = <&ltdc_pins_b>;
+ 	pinctrl-1 = <&ltdc_sleep_pins_b>;
+ 	status = "okay";
+-/*
++
+ 	port {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+@@ -210,7 +210,7 @@ ltdc_ep0_out: endpoint@0 {
+ 			reg = <0>;
+ 			remote-endpoint = <&it66121_in>;
+ 		};
+-	};*/
++	};
+ };
+ 
+ &ethernet0 {
+@@ -283,6 +283,24 @@ eeprom: eeprom@50 {
+ 		reg = <0x50>;
+ 		pagesize = <16>;
+ 	};
++
++	it66121hdmitx: it66121hdmitx@4d {
++		compatible = "ite,it66121";
++		interrupt-parent = <&gpioi>;
++		interrupts = <8 8>;         
++		vcn33-supply = <&hdmi_3v3>;
++		vcn18-supply = <&hdmi_1v8>;
++		vrf12-supply = <&hdmi_1v2>;
++		reset-gpios = <&gpiof 3 1>;
++		reg = <0x4d>;
++		pclk-dual-edge;
++
++		port {
++			it66121_in: endpoint {
++				remote-endpoint = <&ltdc_ep0_out>;
++			};
++		};
++	};
+ };
+ 
+ &ipcc {
+-- 
+2.34.1
+

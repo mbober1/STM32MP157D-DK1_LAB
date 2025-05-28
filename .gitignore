@@ -1,3 +1,4 @@
-arm-gnu-toolchain-*
-u-boot
-linux
+.repo
+build/
+!sources/meta-stm32mp/*
+sources/*
