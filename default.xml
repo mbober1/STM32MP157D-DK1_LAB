@@ -14,6 +14,7 @@
   <project revision="scarthgap"   remote="oe"         name="meta-openembedded"    path="sources/meta-openembedded"/>
   <project revision="scarthgap"   remote="yocto"      name="meta-arm"             path="sources/meta-arm"/>
   <project revision="scarthgap"   remote="yocto"      name="meta-virtualization"  path="sources/meta-virtualization"/>
+  <project revision="scarthgap"   remote="yocto"      name="meta-zephyr"          path="sources/meta-zephyr"/>
   <project revision="scarthgap"   remote="clang"      name="meta-clang"           path="sources/meta-clang"/>
   <project revision="scarthgap"   remote="swupdate"   name="meta-swupdate"        path="sources/meta-swupdate"/>
   <project revision="scarthgap"   remote="mbober"     name="meta-beaver"          path="sources/meta-beaver"/>
