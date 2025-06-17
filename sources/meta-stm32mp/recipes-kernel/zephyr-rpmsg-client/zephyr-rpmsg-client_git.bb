@@ -10,4 +10,5 @@ SRC_URI = " \
 
 PV = "1.0+git"
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/sources"
+UNPACKDIR = "${S}"
