@@ -14,10 +14,6 @@ SERIAL_CONSOLES = "115200;ttySTM0"
 SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
 
-# Do not update fstab file when using wic images
-WIC_CREATE_EXTRA_ARGS ?= "--no-fstab-update"
-
-# Image
 IMAGE_FSTYPES = "wic wic.zst tar.zst"
 
 WKS_FILE_DEPENDS ?= " \
@@ -25,8 +21,7 @@ WKS_FILE_DEPENDS ?= " \
     e2fsprogs-native \
 "
 
-# Wic default support
-WKS_FILE ?= "stm32mp157-basic.wks.in"
+WKS_FILE ?= "stm32mp157-basic-ota.wks.in"
 
 KERNEL_IMAGETYPE ?= "zImage"
 
