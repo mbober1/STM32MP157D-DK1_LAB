@@ -42,10 +42,12 @@ LAYERS=" \
     $CWD/sources/meta-clang \
     $CWD/sources/meta-beaver \
     $CWD/sources/meta-stm32mp \
+    $CWD/sources/meta-zephyr/meta-zephyr-core \
+    $CWD/sources/meta-zephyr/meta-zephyr-bsp \
 "
 
 for layer in $LAYERS; do
     layer_name=`basename $layer`
     echo "Adding layer $layer_name"
-    bitbake-layers add-layer $layer > /dev/null 2>&1
+    bitbake-layers add-layer $layer
 done
