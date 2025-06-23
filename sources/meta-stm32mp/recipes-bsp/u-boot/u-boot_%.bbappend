@@ -15,5 +15,5 @@ SRC_URI:stm32mp15-disco = " \
   file://bootcmd.cfg \
   file://quickstart.cfg \
 "
-SRCREV:stm32mp15-disco = "${AUTOREV}"
+SRCREV:stm32mp15-disco = "2ab10ed2399b0c1c790733884935c94ad65aa2a8"
 
