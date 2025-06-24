@@ -23,10 +23,20 @@ cat <<EOF >> $PWD/conf/local.conf
 MACHINE = "stm32mp15-disco"
 DISTRO = "beaveros"
 INHERIT += "rm_work"
+BBMULTICONFIG += "coproc"
 
+# BAMBIK_SOURCES = "1"
 # DL_DIR ?= "/adata/yocto-downloads"
 # SSTATE_DIR ?= "/adata/yocto-sstate-cache"
 # BB_GENERATE_MIRROR_TARBALLS = "1"
+
+EOF
+
+mkdir -p $PWD/conf/multiconfig
+cat <<EOF >> $PWD/conf/multiconfig/coproc.conf
+
+MACHINE = "stm32mp157c-dk2"
+DISTRO = "zephyr"
 
 EOF
 
