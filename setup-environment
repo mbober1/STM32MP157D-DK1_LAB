@@ -26,8 +26,8 @@ INHERIT += "rm_work"
 BBMULTICONFIG += "coproc"
 
 # BAMBIK_SOURCES = "1"
-# DL_DIR ?= "/adata/yocto-downloads"
-# SSTATE_DIR ?= "/adata/yocto-sstate-cache"
+# DL_DIR ?= "/mnt/storage/yocto/downloads"
+# SSTATE_DIR ?= "/mnt/storage/yocto/sstate-cache/"
 # BB_GENERATE_MIRROR_TARBALLS = "1"
 
 EOF

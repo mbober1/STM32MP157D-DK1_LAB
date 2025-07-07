@@ -9,7 +9,4 @@ SRC_URI:append = " \
 	file://stm32.cfg \
 "
 
-KCONFIG_MODE = "--alldefconfig"
-KBUILD_DEFCONFIG = "multi_v7_defconfig"
-COMPATIBLE_MACHINE = "(stm32mp1)"
-DEPENDS += "lzop-native"
+COMPATIBLE_MACHINE:stm32mp15-disco = "stm32mp15-disco"
