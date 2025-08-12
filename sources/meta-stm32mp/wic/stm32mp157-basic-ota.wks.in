@@ -5,7 +5,7 @@ part fsbl1  --source rawcopy --sourceparams="file=u-boot-spl.stm32" --ondisk mmc
 part fsbl2  --source rawcopy --sourceparams="file=u-boot-spl.stm32" --ondisk mmcblk --align 1 --size 256k --part-name fsbl2
 part ssbl   --source rawcopy --sourceparams="file=u-boot.img"       --ondisk mmcblk --align 1 --size 2M   --part-name ssbl
 
-part /      --source rootfs --label rootfsA --fstype=ext4 --part-name rootfsA --size=768 --ondisk mmcblk --active
-part /      --source rootfs --label rootfsB --fstype=ext4 --part-name rootfsB --size=768 --ondisk mmcblk
+part /      --source rootfs --label rootfsA --fstype=ext4 --part-name rootfsA --size=1536 --ondisk mmcblk --active
+part /      --source rootfs --label rootfsB --fstype=ext4 --part-name rootfsB --size=1536 --ondisk mmcblk
 
 bootloader --ptable gpt

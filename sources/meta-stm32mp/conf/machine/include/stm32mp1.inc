@@ -5,7 +5,7 @@ DEFAULTTUNE = "cortexa7thf-neon-vfpv4"
 
 SOC_FAMILY = "stm32mp1"
 
-PREFERRED_PROVIDER_virtual/kernel ??= "linux-mainline"
+PREFERRED_PROVIDER_virtual/kernel ??= "linux-yocto"
 
 UBOOT_SUFFIX = "img"
 UBOOT_ENTRYPOINT = "0xC2000040"
@@ -21,7 +21,7 @@ WKS_FILE_DEPENDS ?= " \
     e2fsprogs-native \
 "
 
-WKS_FILE ?= "stm32mp157-basic-ota.wks.in"
+WKS_FILE ?= "stm32mp157-basic.wks.in"
 
 KERNEL_IMAGETYPE ?= "zImage"
 

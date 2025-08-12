@@ -11,8 +11,14 @@ SRCREV:stmp157-olinuxino-lime2 = "${AUTOREV}"
 BRANCH:stm32mp15-disco = "master"
 SRC_URI:stm32mp15-disco = " \
   git://source.denx.de/u-boot/u-boot.git;protocol=https;branch=${BRANCH} \
-  file://stm32mp157a-dk1.cfg \
+  file://stm32mp157c-dk2.cfg \
   file://bootcmd.cfg \
   file://quickstart.cfg \
+  file://st.bmp \
 "
-SRCREV:stm32mp15-disco = "2ab10ed2399b0c1c790733884935c94ad65aa2a8"
+SRCREV:stm32mp15-disco = "235e14b0f1ad7cfd46e18635f22a3cba7209c766"
+
+
+do_compile:prepend() {
+  cp ${WORKDIR}/sources-unpack/st.bmp ${S}/tools/logos/st.bmp
+}
