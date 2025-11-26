@@ -1,0 +1,16 @@
+{
+  "name": "STM32MP1 Lab",
+  "dockerFile": "Dockerfile",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux" : "bash",
+        "extensions.ignoreRecommendations": true
+      },
+      "extensions": [
+        "mhutchie.git-graph"
+      ]
+    }
+  } 
+}
