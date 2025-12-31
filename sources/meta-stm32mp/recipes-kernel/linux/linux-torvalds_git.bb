@@ -5,21 +5,22 @@ SECTION = "kernel"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
-KERNEL_VERSION_SANITY_SKIP="1"
-LINUX_VERSION = "6.15+"
-BRANCH = "linux-6.15.y"
-SRCREV_kernel = "7b59ab988c01c190f1b528cf750d6f33b738d1e2"
-SRCREV_yocto-meta = "5a1b16216628f2edb6eacc7d25b9f0dc3e50fbac"
+LINUX_VERSION = "6.18.1"
+BRANCH = "linux-6.18.y"
+SRCREV_kernel = "25442251cbda7590d87d8203a8dc1ddf2c93de61"
+SRCREV_yocto-meta = "f224983ee724c8eb616ae63eb3dc2aac9752c07b"
+PV = "${LINUX_VERSION}"
+KMETA_AUDIT = ""
 
 SRC_URI = " \
 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git;name=kernel;protocol=https;branch=${BRANCH} \
-	git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=yocto-meta;branch=master;destsuffix=kernel-meta;protocol=https \
+	git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=yocto-meta;branch=yocto-6.18;destsuffix=kernel-meta;protocol=https \
 "
 
 DEPENDS += "lzop-native"
 FIT_KERNEL_COMP_ALG ?= "lzo"
 FIT_KERNEL_COMP_ALG_EXTENSION ?= ".lzo"
-#LINUX_KERNEL_TYPE = "preempt-rt"
+LINUX_KERNEL_TYPE = "preempt-rt"
 
 
 inherit kernel

@@ -2,6 +2,8 @@
   "name": "STM32MP1 Lab",
   "dockerFile": "Dockerfile",
 
+  "mounts": ["source=/mnt/storage,target=/mnt/storage,type=bind"],
+
   "customizations": {
     "vscode": {
       "settings": {

@@ -12,7 +12,7 @@ RUN apt-get -y update && \
     file gawk gcc git iputils-ping libacl1 liblz4-tool \
     locales python3 python3-git python3-jinja2 python3-pexpect \
     python3-pip python3-subunit socat texinfo unzip wget \
-    xz-utils zstd \
+    xz-utils zstd screen \
 		&& \
 	apt-get clean -y && \
 	apt-get autoremove --purge -y && \
